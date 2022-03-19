@@ -6,14 +6,18 @@ class Solution
         // Your code here
         Stack<Long> s = new Stack<Long>();
         long nums[]= new long[arr.length];
-        for(int i=arr.length-1;i>=0;i--)
+        for(int i=arr.length-1;i>=0;i--)//iterate from last element
         {
             if(!s.isEmpty())
             {
-             while(!s.isEmpty()&&s.peek()<arr[i])
+             /*
+             if stack is not empty and element at peek of stack is less than the present element then pop it
+             till you get greater element
+             */
+             while(!s.isEmpty()&&s.peek()<arr[i]) 
              s.pop();
             }
-            nums[i]=s.isEmpty()?-1:s.peek();
+            nums[i]=s.isEmpty()?-1:s.peek();  //if last element then add -1 or the stack is empty
             s.push(arr[i]);
         }
      return nums;   
