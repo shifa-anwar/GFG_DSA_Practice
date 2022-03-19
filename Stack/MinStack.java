@@ -23,6 +23,10 @@ public class MinStack {
        min.push(y);
       else
           min.push(x);
+         /*for makin space optimised(push in auxillary stack only if current value is less than peek element of auxillary stack)
+         if(x<=y)
+         min.push(x);
+         */
      }
     }
     static int pop()
