@@ -5,13 +5,14 @@ class Solution
     public static long getMaxArea(long hist[], long n) 
     {
         // your code here
-        int lb[]=new int[hist.length];//indicate lef boundary
+        int lb[]=new int[hist.length];//indicate left boundary
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         lb[0]=-1;
         for(int i=1;i<hist.length;i++)
         {
-        while(!stack.isEmpty()&&hist[i]<=(int)hist[stack.peek()])
+        while(!stack.isEmpty()&&hist[i]<=hist[stack.peek()])
+        //pop all element greater than current element    
         {
         stack.pop();    
         }
@@ -27,7 +28,7 @@ class Solution
         rb[hist.length-1]=hist.length;
         for(int i=hist.length-2;i>=0;i--)
         {
-            while(!st.isEmpty()&&hist[i]<=(int)hist[st.peek()])
+            while(!st.isEmpty()&&hist[i]<=hist[st.peek()])
             {
                 st.pop();
             }
